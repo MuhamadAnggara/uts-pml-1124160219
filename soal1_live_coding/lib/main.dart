@@ -70,10 +70,102 @@ class ProfilePage extends StatelessWidget {
                 'Teknik Informatika',
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
+              const SizedBox(height: 20),
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: const [
+                      InfoTile(
+                        icon: Icons.email,
+                        label: 'Email',
+                        value: 'anggaratzy001@gmail.com',
+                      ),
+                      Divider(),
+                      InfoTile(
+                        icon: Icons.phone,
+                        label: 'Nomor HP',
+                        value: '089787334455',
+                      ),
+                      Divider(),
+                      InfoTile(
+                        icon: Icons.class_,
+                        label: 'Kelas',
+                        value: 'TI-24-A',
+                      ),
+                      Divider(),
+                      InfoTile(
+                        icon: Icons.code,
+                        label: 'Akun GitHub',
+                        value: 'MuhamadAnggara',
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: const [
+                      InfoTile(
+                        icon: Icons.phone_android,
+                        label: 'Keahlian 1',
+                        value: 'Mobile App Development',
+                      ),
+                      Divider(),
+                      InfoTile(
+                        icon: Icons.palette,
+                        label: 'Keahlian 2',
+                        value: 'UI/UX Design',
+                      ),
+                      Divider(),
+                      InfoTile(
+                        icon: Icons.sports_esports,
+                        label: 'Hobi',
+                        value: 'Gaming & Coding',
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Terima kasih telah melihat profil saya'),
+            ),
+          );
+        },
+        child: const Icon(Icons.message),
+      ),
+    );
+  }
+}
+
+class InfoTile extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final String value;
+
+  const InfoTile({
+    super.key,
+    required this.icon,
+    required this.label,
+    required this.value,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Icon(icon),
+      title: Text(label),
+      subtitle: Text(value),
     );
   }
 }
