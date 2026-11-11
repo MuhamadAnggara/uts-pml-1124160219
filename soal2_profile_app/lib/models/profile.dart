@@ -6,7 +6,7 @@ class Profile {
   String bio;
   String email;
   String phone;
-  String githup;
+  String github;
   String imagePath;
 
 Profile({
@@ -17,7 +17,7 @@ Profile({
   required this.bio,
   required this.email,
   required this.phone,
-  required this.githup,
+  required this.github,
   required this.imagePath,
 });
 }
