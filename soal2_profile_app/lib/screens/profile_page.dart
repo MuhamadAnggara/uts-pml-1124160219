@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/profile.dart';
 import '../widgets/info_tile.dart';
+import 'edit_profile_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -20,12 +21,35 @@ class _ProfilePageState extends State<ProfilePage> {
       nim: '1124160219',
       prodi: 'Teknik Informatika',
       kelas: 'TI24PSE1',
-      bio: 'Mahasiswa Teknik Informatika yang antusias dalam pengembangan aplikasi mobile Flutter ',
-      email: 'anggaratzy001@gmail,',
+      bio: 'Mahasiswa Teknik Informatika yang antusias dalam pengembangan aplikasi mobile Flutter',
+      email: 'anggaratzy001@gmail.com',
       phone: '085814974817',
       github: 'MuhamadAnggara',
       imagePath: 'assets/images/profile.png',
     );
+  }
+
+  void _navigateToEditProfile() async {
+    final updatedProfile = await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => EditProfilePage(profile: userProfile),
+      ),
+    );
+
+    if (!mounted) return;
+
+    if (updatedProfile != null && updatedProfile is Profile) {
+      setState(() {
+        userProfile = updatedProfile;
+      });
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Profil berhasil diperbarui!'),
+        ),
+      );
+    }
   }
 
   @override
@@ -34,6 +58,13 @@ class _ProfilePageState extends State<ProfilePage> {
       appBar: AppBar(
         title: const Text('Profil Mahasiswa'),
         centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.edit),
+            tooltip: 'Edit Profil',
+            onPressed: _navigateToEditProfile,
+          ),
+        ],
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -42,10 +73,10 @@ class _ProfilePageState extends State<ProfilePage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(height: 10),
-              Center(
+              const Center(
                 child: CircleAvatar(
                   radius: 55,
-                  child: const Icon(Icons.person, size: 60),
+                  child: Icon(Icons.person, size: 60),
                 ),
               ),
               const SizedBox(height: 16),
@@ -111,6 +142,15 @@ class _ProfilePageState extends State<ProfilePage> {
                       value: userProfile.github,
                     ),
                   ],
+                ),
+              ),
+              const SizedBox(height: 20),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  onPressed: _navigateToEditProfile,
+                  icon: const Icon(Icons.edit),
+                  label: const Text('EDIT PROFIL'),
                 ),
               ),
             ],
