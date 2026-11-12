@@ -66,6 +66,54 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ],
       ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: Text(
+                userProfile.name,
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+              accountEmail: Text('${userProfile.nim} • ${userProfile.kelas}'),
+              currentAccountPicture: const CircleAvatar(
+                child: Icon(Icons.person, size: 40),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text('Profil Saya'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.info),
+              title: const Text('Tentang Saya'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, '/about');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.edit),
+              title: const Text('Edit Profil'),
+              onTap: () {
+                Navigator.pop(context);
+                _navigateToEditProfile();
+              },
+            ),
+            const Divider(),
+            ListTile(
+              leading: const Icon(Icons.logout),
+              title: const Text('Keluar (Logout)'),
+              onTap: () {
+                Navigator.pushReplacementNamed(context, '/login');
+              },
+            ),
+          ],
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16.0),
@@ -144,18 +192,33 @@ class _ProfilePageState extends State<ProfilePage> {
                   ],
                 ),
               ),
-              const SizedBox(height: 20),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton.icon(
-                  onPressed: _navigateToEditProfile,
-                  icon: const Icon(Icons.edit),
-                  label: const Text('EDIT PROFIL'),
-                ),
-              ),
+              const SizedBox(height: 80),
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _navigateToEditProfile,
+        tooltip: 'Edit Profil',
+        child: const Icon(Icons.edit),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
+        onTap: (index) {
+          if (index == 1) {
+            Navigator.pushNamed(context, '/about');
+          }
+        },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profil',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.info),
+            label: 'Tentang Saya',
+          ),
+        ],
       ),
     );
   }
