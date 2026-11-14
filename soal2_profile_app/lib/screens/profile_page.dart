@@ -86,8 +86,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               accountEmail: Text('${userProfile.nim} • ${userProfile.kelas}'),
-              currentAccountPicture: const CircleAvatar(
-                child: Icon(Icons.person, size: 40),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: AssetImage(userProfile.imagePath),
               ),
             ),
             ListTile(
@@ -140,10 +140,10 @@ class _ProfilePageState extends State<ProfilePage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(height: 10),
-              const Center(
+              Center(
                 child: CircleAvatar(
                   radius: 55,
-                  child: Icon(Icons.person, size: 60),
+                  backgroundImage: AssetImage(userProfile.imagePath),
                 ),
               ),
               const SizedBox(height: 16),
