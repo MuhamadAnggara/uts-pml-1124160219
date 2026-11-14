@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../main.dart';
 import '../models/profile.dart';
 import '../widgets/info_tile.dart';
 import 'edit_profile_page.dart';
@@ -54,11 +55,20 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = MyApp.isDarkMode(context);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Profil Mahasiswa'),
         centerTitle: true,
         actions: [
+          IconButton(
+            icon: Icon(isDark ? Icons.light_mode : Icons.dark_mode),
+            tooltip: isDark ? 'Mode Terang' : 'Mode Gelap',
+            onPressed: () {
+              MyApp.setBrightness(context, !isDark);
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.edit),
             tooltip: 'Edit Profil',
@@ -101,6 +111,15 @@ class _ProfilePageState extends State<ProfilePage> {
               onTap: () {
                 Navigator.pop(context);
                 _navigateToEditProfile();
+              },
+            ),
+            const Divider(),
+            SwitchListTile(
+              secondary: Icon(isDark ? Icons.dark_mode : Icons.light_mode),
+              title: const Text('Mode Gelap'),
+              value: isDark,
+              onChanged: (bool value) {
+                MyApp.setBrightness(context, value);
               },
             ),
             const Divider(),
