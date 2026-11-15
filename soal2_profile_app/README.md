@@ -18,16 +18,18 @@ Aplikasi profil diri mahasiswa berbasis Android yang dibangun menggunakan Flutte
 
 ### Screenshot Aplikasi
 
-| Halaman Login | Halaman Profil | Halaman Edit Profil |
-| :---: | :---: | :---: |
-| <img src="screenshots/login.png" width="260" /> | <img src="screenshots/profile.png" width="260" /> | <img src="screenshots/edit_profile.png" width="260" /> |
+| Halaman Login | Halaman Profil | Halaman Edit Profil | Menu Drawer (Mode Gelap) |
+| :---: | :---: | :---: | :---: |
+| <img src="screenshots/login.png" width="200" /> | <img src="screenshots/profile.png" width="200" /> | <img src="screenshots/edit_profile.png" width="200" /> | <img src="screenshots/drawer_dark.png" width="200" /> |
 
 ---
 
 ### Daftar Fitur Utama
+
 1. **Halaman Login (Materi 5):**
    - Menggunakan `StatefulWidget`, `Form`, dan `TextFormField` dengan validator.
-   - Indikator loading saat proses verifikasi login.
+   - Validasi format email dan kata sandi minimal 6 karakter.
+   - Dilengkapi toggle show/hide password dan indikator loading saat proses verifikasi login.
    - Navigasi perpindahan halaman menggunakan `Navigator.pushReplacementNamed`.
 
 2. **Halaman Profil Mahasiswa:**
@@ -44,15 +46,20 @@ Aplikasi profil diri mahasiswa berbasis Android yang dibangun menggunakan Flutte
 4. **Halaman Tentang Saya:**
    - Menampilkan minimal 3 keahlian teknis dan riwayat pendidikan menggunakan `ListView`.
 
-5. **Komponen Scaffold Lengkap:**
-   - AppBar interaktif, Navigation Drawer di kiri, BottomNavigationBar di bawah, dan FloatingActionButton untuk edit profil.
+5. **Scaffold Lengkap:**
+   - `AppBar` dengan judul halaman dan aksi penggantian tema.
+   - `Drawer` navigasi samping.
+   - `BottomNavigationBar` untuk navigasi antar tab.
+   - `FloatingActionButton` (FAB) untuk refresh data profil.
 
-6. **Tema Terang & Gelap (Dynamic ThemeMode):**
-   - Mendukung `theme` (Light Mode) dan `darkTheme` (Dark Mode).
-   - Tombol / switch di dalam aplikasi yang mengubah `themeMode` secara langsung.
+6. **Pengelolaan State Lokal:**
+   - Menggunakan `StatefulWidget` dan `setState()` secara efisien tanpa state management pihak ketiga.
 
-7. **Identitas Native Android:**
-   - Nama aplikasi di HP Android diganti menjadi **`Profil Anggara`** via atribut `android:label` pada `AndroidManifest.xml`.
+7. **Dukungan Tema Terang & Gelap (Light / Dark Mode):**
+   - Tombol / switch di dalam aplikasi yang mengubah `ThemeMode` secara langsung.
+
+8. **Identitas Native Android:**
+   - Nama aplikasi di HP Android diganti menjadi **"Profil Anggara"** via atribut `android:label` pada `AndroidManifest.xml`.
 
 ---
 
@@ -66,3 +73,8 @@ Aplikasi profil diri mahasiswa berbasis Android yang dibangun menggunakan Flutte
    ```bash
    flutter run
    ```
+4. Build APK Release:
+   ```bash
+   flutter build apk --release
+   ```
+   *Hasil APK terletak di:* `soal2_profile_app/build/app/outputs/flutter-apk/app-release.apk`
