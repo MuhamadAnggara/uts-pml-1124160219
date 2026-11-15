@@ -18,9 +18,9 @@ Aplikasi profil diri mahasiswa berbasis Android yang dibangun menggunakan Flutte
 
 ### Screenshot Aplikasi
 
-| Halaman Login | Halaman Profil | Halaman Edit Profil | Menu Drawer (Mode Gelap) |
-| :---: | :---: | :---: | :---: |
-| <img src="screenshots/login.png" width="200" /> | <img src="screenshots/profile.png" width="200" /> | <img src="screenshots/edit_profile.png" width="200" /> | <img src="screenshots/drawer_dark.png" width="200" /> |
+| Halaman Login | Halaman Profil | Halaman Edit Profil | Menu Drawer (Mode Gelap) | Halaman Tentang Saya |
+| :---: | :---: | :---: | :---: | :---: |
+| <img src="screenshots/login.png" width="160" /> | <img src="screenshots/profile.png" width="160" /> | <img src="screenshots/edit_profile.png" width="160" /> | <img src="screenshots/drawer_dark.png" width="160" /> | <img src="screenshots/about.png" width="160" /> |
 
 ---
 
