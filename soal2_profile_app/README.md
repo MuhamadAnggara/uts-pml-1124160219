@@ -11,6 +11,8 @@ Aplikasi profil diri mahasiswa berbasis Android yang dibangun menggunakan Flutte
 - **NIM:** 1124160219
 - **Program Studi:** Teknik Informatika
 - **Kelas:** TI24PSE1
+- **Email:** anggaratzy001@gmail.com
+- **Nomor HP:** 085814974817
 - **Repository GitHub:** [https://github.com/MuhamadAnggara/uts-pml-1124160219](https://github.com/MuhamadAnggara/uts-pml-1124160219)
 - **Link Video YouTube:** [Tonton Video Presentasi di YouTube](https://youtu.be/gxRSR37TLjE)
 
